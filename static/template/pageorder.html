@@ -1,0 +1,11 @@
+<div id="fly-page-order" >
+    <button class="fly-btn">点击排序</button>
+    <div class="fly-page-container">
+        <ul class="fly-page-list">
+            <li fly-page-order class="fly-page" ng-repeat="page in ltP.index.groups[0].pages" ng-style="{background:'url('+page.styles['background-image']+')',backgroundColor:page.styles['background-color'],backgroundSize:'cover'}">
+                <div class="fly-page-index" ng-bind="$index+1"></div>
+                <div class="fly-page-delete">&times;</div>
+            </li>
+        </ul>
+    </div>
+</div>

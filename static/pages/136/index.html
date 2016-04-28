@@ -1,0 +1,99 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="apple-touch-fullscreen" content="YES" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta http-equiv="Expires" content="-1" />
+    <meta http-equiv="pragram" content="no-cache" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, minimal-ui, user-scalable=no">
+    <link href="/previewstatic/css/index.min.css" rel="stylesheet" />
+    <link href="/previewstatic/css/animation.css" rel="stylesheet" />
+    <link href="/previewstatic/css/animations.css" rel="stylesheet" />
+
+    <title></title>
+</head>
+<body>
+
+    <div style="display:none" id="shareLogo"></div>
+
+    <article class="phone pc">
+        <header class="pc">
+            <div class="page-header-bar"></div>
+            <div class="page-header-bar"></div>
+        </header>
+        <section id="container">
+            <div id="loading">
+                <section class="waiting">加载中,请稍候...</section>
+            </div>
+            <article id="unpublish">
+                <!--<p>本作品为非正式发布的作品</p>
+                <span class="info"></span>-->
+            </article>
+            <section id="main" class="fly-perspective">
+            </section>
+        </section>
+        <footer>
+            <div></div>
+        </footer>
+    </article>
+
+
+    <article class="pc operator" id="operator">
+        <div class="code" id="code">
+        </div>
+        <div class="code">
+            <p>扫描二维码预览并分享给好友</p>
+            <a href="javascript:void(0)" id="back-edit" style="display:none;">返回编辑</a>
+        </div>
+        <div class="keyword">
+            <div class="dir">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+            <div class="dir1">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+        </div>
+
+    </article>
+    <script src="/previewstatic/js/jweixin-1.0.0.js"></script>
+    <script src="/previewstatic/js/zepto-touch.min.js"></script>
+    <script src="/previewstatic/js/requirejs/require.js" data-main="/previewstatic/js/main"></script>
+    <script src="/previewstatic/js/ltAll.js"></script>
+    <script>
+
+        String.prototype.hump = function () {
+            return this.replace(/([A-Z])/g, "-$1").toLowerCase();
+        }
+
+        var local = window.location.href;
+        function isWX() {
+            var ua = window.navigator.userAgent.toLowerCase();
+            return ua.match(/MicroMessenger/i) == 'micromessenger';
+        }
+        function getQuery(name, w) {
+            var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+            var r = w.location.search.substr(1).match(reg);
+            if (r != null) return unescape(r[2]); return null;
+        }
+
+        var openid = "";
+        if (isWX()) {
+            openid = getQuery("openid", window);
+            if (!openid || openid == '') {
+                var h = local.substring(0, local.indexOf("?") > -1 ? local.indexOf("?") : local.length);
+                var oauth2 = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxfacf4a639d9e3bcc&redirect_uri=http%3a%2f%2fwww.zmiti.com%2fwxapi%2fwechatOauth2&response_type=code&scope=snsapi_base&state=' + h + '#wechat_redirect';
+                window.location.href = oauth2;
+            }
+        }
+    </script>
+</body>
+</html>

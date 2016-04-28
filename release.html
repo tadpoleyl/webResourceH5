@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html ng-controller="releaseController">
+<head lang="en">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="apple-touch-fullscreen" content="YES" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta http-equiv="Expires" content="-1" />
+    <meta http-equiv="pragram" content="no-cache" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, minimal-ui, user-scalable=no">
+    <title>发布</title>
+    <link rel="stylesheet" href="static/css/release.css"/>
+</head>
+<body>
+<section class="fly-header">
+    <div class="fly-back flex-box">
+        <div id="fly-back"></div>
+    </div>
+</section>
+<section id="fly-container">
+    <div id="fly-project-setting">
+      <section class="prj-setting-content">
+        <div class="prjName">
+              <input type="text" placeholder ="作品名称" ng-model="pageName" class="name">
+          </div>
+        <div class="replace">
+            <div class="face" style="background: url({{ltP.index.$scope.thumbnail}}) no-repeat center center;  background-color: #fff; background-size: cover;">
+                <input id="fly-chagePic" type="button" value="更换封面" fly-chaegpic/>
+            </div>
+            <textarea class="note" name="" cols="" rows="5" placeholder ="描述" ng-bind="pageDesc"></textarea>
+        </div>
+        <div class="prj_remark">
+              <input type="text" value="" class="remark"  placeholder="备注区">
+          </div>
+        <div class="pre_info">
+            <textarea class="list" name="" cols="" rows="3" placeholder="人员列表"></textarea>
+        </div>
+        <div class="classify">
+            <div class="left">
+                <section style="width:4.2rem" class="fly-dropdownlist" id="classify1" fly-dropdownlist="classify1">
+                    <div class="fly-current-val" ng-bind="name"></div>
+                    <div class="tip"></div>
+                    <section class="fly-dropdownlist-items" style="height: 4rem">
+                        <ul class="fly-dropdown-container" style="position: absolute;top:0">
+                            <li class="fly-dropdown-item" ng-class="{true:'active',false:''}[item.id=id1]" ng-repeat="item in type1" data-value="{{item.id}}" ng-bind="item.name"></li>
+                        </ul>
+                    </section>
+                    <div class="fly-mask"></div>
+                </section>
+            </div>
+            <div class="left right">
+                <section style="width:4.2rem" class="fly-dropdownlist" id="classify2" fly-dropdownlist="classify2">
+                    <div class="fly-current-val" ng-bind="name2"></div>
+                    <div class="tip"></div>
+                    <section class="fly-dropdownlist-items" style="height: 4rem">
+                        <ul class="fly-dropdown-container" style="position: absolute;top:0">
+                            <li class="fly-dropdown-item" ng-class="{true:'active',false:''}[item.id=id2]" ng-repeat="item in type2" data-value="{{item.id}}" ng-bind="item.name"></li>
+                        </ul>
+                    </section>
+                    <div class="fly-mask"></div>
+                </section>
+            </div>
+        </div>
+        <div class="edit">
+            <ul>
+                <li id="before" class="editing" style="background-color: #ffffff;">
+                    <input type="text" id="prjType" style="width:100%;height: 80%;"/>
+                </li>
+                <li class="editing add">
+                    <a href="javascript:;" target="_blank"><img src="static/images/zpsz_02.jpg" alt=""></a>
+                </li>
+            </ul>
+        </div>
+      </section>
+    </div>
+</section>
+<section class="fly-image-menu">
+    <ul fly-select>
+        <li>本地相册</li>
+        <li>在线图库</li>
+    </ul>
+</section>
+<section class="fly-button-group">
+    <input id="btnSave" type="button" value="保  存" ng-click="btnSave()" />
+    <input id="btnRel" type="button" class="btn-cancle" value="发   布" ng-click="btnRel()"/>
+</section>
+<script src="static/js/jquery-1.11.0.min.js"></script>
+<!--<script src="static/js/iscroll.js"></script>-->
+<script src="static/js/angular.min.js"></script>
+<script src="static/js/requirejs/require.js"></script>
+<script>
+    $("html").css("font-size",window.innerWidth/10);
+    //    var paths ={
+//        relApp:"js/release"
+//    }
+//    requirejs.config({
+//        baseUrl: "static/",
+//        paths:paths
+//    });
+   /* require(["relApp"],function(init){
+        init(136);
+    });*/
+</script>
+</body>
+</html>

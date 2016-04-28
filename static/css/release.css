@@ -1,0 +1,481 @@
+/*
+* Created by lt-llj on 2015/12/17.
+*/
+/*
+* Created by lt-llj on 2015/11/30.
+*/
+html,
+body,
+div,
+p,
+ul,
+li,
+ol,
+dl,
+dt,
+dd,
+header,
+footer,
+video,
+h1,
+h2,
+h3,
+h4,
+canvas,
+section,
+figure {
+  padding: 0;
+  margin: 0;
+}
+a {
+  text-decoration: none;
+}
+li {
+  list-style: none;
+}
+html,
+body {
+  height: 100%;
+}
+img {
+  border: none;
+  vertical-align: top;
+  width: 100%;
+  height: 100%;
+}
+input,
+textarea {
+  outline: none;
+}
+input[type="button"],
+input[type="submit"],
+input[type="reset"] {
+  -webkit-appearance: none;
+}
+body {
+  font-family: "微软雅黑";
+  font-size: 14px;
+  background: #ccc;
+  overflow: hidden;
+  height: 100%;
+}
+.transform3d {
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+}
+.fly-header {
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  display: -webkit-box;
+  font-size: 16px !important;
+  width: 100%;
+  background: #333745;
+  height: 44px;
+  line-height: 44px;
+  z-index: 99999;
+  position: relative;
+}
+.fly-header .fly-back {
+  width: 64px;
+  height: 44px;
+  -webkit-box-flex: 1;
+}
+.fly-header .fly-back div {
+  text-align: left;
+  width: 30px;
+  height: 30px;
+  background: url(../images/back-ico.png) no-repeat center;
+  margin: 8px 0 0 13px;
+  background-size: contain;
+  position: absolute;
+}
+#fly-project-setting {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+#fly-project-setting .prj-setting-content {
+  width: 100%;
+  position: absolute;
+}
+#fly-project-setting .name,
+#fly-project-setting .note,
+#fly-project-setting .remark,
+#fly-project-setting .edit,
+#fly-project-setting .list {
+  border-radius: 0.2rem;
+  font-size: 0.5rem;
+}
+#fly-project-setting .prjName {
+  width: 100%;
+  height: 1rem;
+  line-height: 1rem;
+  text-align: center;
+  margin-top: .4rem;
+}
+#fly-project-setting .prjName .name {
+  width: 9rem;
+  height: 1rem;
+  background: #fff;
+  border: 1px solid #bfbfbf;
+  font-size: .5rem;
+}
+#fly-project-setting .replace {
+  width: 100%;
+  height: 3rem;
+  line-height: 3rem;
+  margin: 0 auto;
+  margin-top: .4rem;
+  margin-left: .5rem;
+}
+#fly-project-setting .replace .face {
+  width: 3rem;
+  height: 3rem;
+  float: left;
+  text-align: center;
+}
+#fly-project-setting .replace .face img {
+  width: 3rem;
+  vertical-align: top;
+}
+#fly-project-setting .replace .face input {
+  width: 3rem;
+  height: 1rem;
+  border: none;
+  background-color: #000000;
+  color: #ffffff;
+  opacity: .5;
+  border-radius: .1rem;
+  bottom: 0;
+  padding: 0;
+  margin: 0;
+  margin-top: 2rem;
+  font-size: .5rem;
+}
+#fly-project-setting .replace .note {
+  width: 5.65rem;
+  background: #fff;
+  border: 1px solid #bfbfbf;
+  height: 2.85rem;
+  float: left;
+  margin-left: .2rem;
+  font-size: .5rem;
+}
+#fly-project-setting .prj_remark {
+  width: 100%;
+  height: 1rem;
+  line-height: 1rem;
+  text-align: center;
+  margin-top: .3rem;
+  font-size: .5rem;
+}
+#fly-project-setting .prj_remark .remark {
+  background: #fff;
+  border: 1px solid #bfbfbf;
+  width: 9rem;
+  height: 1rem;
+  font-size: .5rem;
+}
+#fly-project-setting .pre_info {
+  width: 100%;
+  text-align: center;
+  margin-top: .3rem;
+  font-size: .5rem;
+}
+#fly-project-setting .pre_info .list {
+  background: #fff;
+  border: 1px solid #bfbfbf;
+  height: 3rem;
+  width: 9rem;
+  font-size: .5rem;
+}
+#fly-project-setting .classify {
+  width: 9rem;
+  height: 1rem;
+  margin: 0 auto;
+  margin-top: .1rem;
+}
+#fly-project-setting .classify .left {
+  float: left;
+}
+#fly-project-setting .classify .right {
+  margin-left: .45rem;
+}
+#fly-project-setting .edit {
+  background: #fff;
+  border: 1px solid #bfbfbf;
+  height: 3rem;
+  overflow: hidden;
+  clear: both;
+  margin: .2rem auto 0;
+  width: 9rem;
+  position: relative;
+}
+#fly-project-setting .edit ul {
+  position: absolute;
+}
+#fly-project-setting .edit .editing {
+  font-size: .5rem;
+  width: 1.7rem;
+  height: 1rem;
+  line-height: 1rem;
+  background: #ffb03a;
+  border-radius: 0.2rem;
+  color: #fff;
+  text-align: center;
+  float: left;
+  margin-left: 0.2rem;
+  margin-top: .1rem;
+}
+#fly-project-setting .edit .add {
+  background: #ccc;
+  margin-left: .2rem;
+  height: 1rem;
+  width: 1.6rem;
+  margin-top: .15rem;
+}
+#fly-project-setting .edit .add img {
+  width: .5rem;
+  height: .5rem;
+  margin-top: 0.25rem;
+}
+.fly-button-group {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 2rem;
+  line-height: 2rem;
+  box-sizing: border-box;
+  text-align: center;
+  background-color: #dfdfdf;
+}
+.fly-button-group input {
+  padding: 0;
+  margin: 0;
+  width: 3rem;
+  height: 1rem;
+  border: none;
+  background-color: #b10200;
+  border-radius: .2rem;
+  color: #ffffff;
+  font-size: .5rem;
+}
+.fly-button-group .btn-cancle {
+  background: #989898 !important;
+}
+/*
+dropdownlist
+*/
+.full {
+  width: 10rem;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.fly-dropdownlist {
+  height: 30px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #ffffff;
+  position: relative;
+}
+.fly-dropdownlist .fly-dropdownlist-items {
+  position: relative;
+  border-right: 1px solid #ccc;
+  box-sizing: border-box;
+  width: 100%;
+  height: 4.2rem;
+  display: none;
+  background-color: #ffffff;
+  overflow: hidden;
+  font-size: 16px;
+}
+.fly-dropdownlist .fly-dropdownlist-items.active {
+  display: block;
+  z-index: 1009;
+}
+.fly-dropdownlist .fly-current-val {
+  width: 100%;
+  line-height: 30px;
+  height: 30px;
+  font-size: 16px;
+  text-align: center;
+}
+.fly-dropdownlist .tip {
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-top: 6px solid #00a388;
+  right: 4px;
+  top: 50%;
+  margin-top: -3px;
+}
+.fly-dropdownlist .fly-dropdown-container {
+  width: 100%;
+  left: 0;
+  top: 100%;
+  border: 1px solid #ccc;
+  border-right: none;
+  border-bottom: none;
+  box-sizing: border-box;
+}
+.fly-dropdownlist .fly-dropdown-container li {
+  font-size: .6rem;
+  width: 100%;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  border-right: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+}
+.fly-dropdownlist .fly-dropdown-container li .active {
+  background-color: #333745;
+  color: #fff;
+}
+.fly-dropdownlist .fly-dropdown-container .active {
+  background-color: #333745;
+  color: #fff;
+}
+.fly-dropdownlist .fly-mask {
+  display: none;
+  width: 10rem;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  background: rgba(0, 0, 0, 0);
+  z-index: 999;
+}
+/*
+发布成功页
+*/
+#fly-page-release {
+  width: 100%;
+}
+#fly-page-release .release-header {
+  height: 7rem;
+  line-height: 7rem;
+}
+#fly-page-release .release-header div {
+  height: 7rem;
+  width: 17rem;
+  margin: 0 auto;
+  background: url(../images/release.png) no-repeat center center;
+  background-size: contain;
+}
+#fly-page-release .release-bottom {
+  position: absolute;
+  height: 3rem;
+  line-height: 3rem;
+  width: 100%;
+  bottom: 0;
+  background-color: #dfdfdf;
+  text-align: center;
+}
+#fly-page-release .release-bottom input {
+  border: none;
+  background-color: #b20200;
+  color: #ffffff;
+  width: 7rem;
+  height: 2rem;
+  border-radius: 30px;
+  padding: 0;
+  margin: 0;
+  font-size: 16px;
+}
+#fly-page-release .release-content .production_share {
+  border: 1px solid red;
+  width: 100%;
+  height: 15rem;
+  text-align: center;
+}
+#fly-page-release .release-content .production_share .code_share {
+  height: 10rem;
+  overflow: hidden;
+  padding: 1.2rem 1rem 0.3rem;
+}
+#fly-page-release .release-content .production_share .code_share .production_share_left {
+  width: 10rem;
+  height: 8rem;
+  float: left;
+}
+#fly-page-release .release-content .production_share .code_share .production_share_left div {
+  width: 8rem;
+  padding: .2rem;
+  border: 1px solid #c9c9c9;
+}
+#fly-page-release .release-content .production_share .code_share .production_share_left div img {
+  vertical-align: top;
+}
+#fly-page-release .release-content .production_share .code_share .production_share_right {
+  width: 7rem;
+  height: 8rem;
+  float: right;
+  margin-top: .4rem;
+}
+#fly-page-release .release-content .production_share .code_share .production_share_right button {
+  color: #999999;
+  width: 7rem;
+  height: 2rem;
+  border: none;
+  background: #d2d2d2;
+  border-radius: 0.3rem;
+  font-size: 16px;
+  padding: 0;
+  margin: 0 0 0.9rem;
+  vertical-align: top;
+  outline: none;
+}
+#fly-page-release .release-content .production_share .code_share .production_share_right button.active {
+  background: #b10101;
+  color: #fff;
+}
+#fly-page-release .release-content .production_share .production_url {
+  clear: both;
+  height: 2rem;
+  line-height: 2rem;
+}
+#fly-page-release .release-content .production_share .production_url span {
+  font-size: 16px;
+}
+#fly-page-release .release-content .production_share .production_url input {
+  font-size: 16px;
+  width: 12rem;
+  height: 2rem;
+  vertical-align: top;
+  margin: 0 0 0 0.5rem;
+  border: none;
+  padding-left: 0.5rem;
+  outline: none;
+  border-radius: .3rem;
+}
+.fly-image-menu {
+  height: 2.5rem;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  text-align: center;
+  background-color: #dfdfdf;
+  -webkit-transform: translateY(100%);
+  transform: translateY(100%);
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+  z-index: 999;
+}
+.fly-image-menu ul {
+  border: 1px solid #ccc;
+}
+.fly-image-menu ul li {
+  height: 1.25rem;
+  line-height: 1.25rem;
+  text-align: center;
+  font-size: .5rem;
+  border-bottom: 1px solid #ccc;
+}
+.activeShow {
+  -webkit-transform: none;
+  transform: none;
+}

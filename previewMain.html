@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="apple-touch-fullscreen" content="YES" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta http-equiv="Expires" content="-1" />
+    <meta http-equiv="pragram" content="no-cache" />
+    <meta content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport"/>
+    <title>预览</title>
+    <link rel="stylesheet" href="static/css/previewMain.css"/>
+</head>
+<body>
+
+<div id="fly-ajax-loading" style="z-index: -100;opacity: 0" class="fly-ajax-loading">
+    <div class="spinner">
+        <div class="spinner-container container1">
+            <div class="circle1"></div>
+            <div class="circle2"></div>
+            <div class="circle3"></div>
+            <div class="circle4"></div>
+        </div>
+        <div class="spinner-container container2">
+            <div class="circle1"></div>
+            <div class="circle2"></div>
+            <div class="circle3"></div>
+            <div class="circle4"></div>
+        </div>
+        <div class="spinner-container container3">
+            <div class="circle1"></div>
+            <div class="circle2"></div>
+            <div class="circle3"></div>
+            <div class="circle4"></div>
+        </div>
+    </div>
+</div>
+
+
+<section class="fly-header">
+    <div class="fly-back flex-box">
+        <div id="fly-back"></div>
+    </div>
+</section>
+<section id="fly-main">
+    <iframe id="iframe" src="">
+    </iframe>
+    <footer id="pre-footer">
+        <div class="fly-footer-btn">
+            <input  type="button" value="编辑"/>
+            <input type="button" value="翻页"/>
+            <input type="button" value="背景音乐"/>
+            <input type="button" value="分享"/>
+            <input type="button" value="Loading"/>
+            <input type="button" value="发布"/>
+        </div>
+    </footer>
+    <section class="fly-share">
+        <div id="production_share">
+            <div class="code_share">
+                <div class="production_share_left">
+                    <img id="flyImg" src="static/images/code.jpg" alt="">
+                </div>
+                <div class="production_share_right">
+                    <button>分享朋友圈</button>
+                    <button>分享微信好友</button>
+                    <button>分享QQ好友</button>
+                </div>
+            </div>
+            <div class="production_url">
+                <span>作品链接</span><input id="flyUrl" type="text" placeholder="URL地址">
+            </div>
+        </div>
+        <div class="cancel">
+            <input id="cancel" type="button" value="取消"/>
+        </div>
+    </section>
+</section>
+
+<script src="static/js/jquery-1.11.0.min.js"></script>
+<script src="static/js/previewMain.js"></script>
+<script>
+    initPreview('http://h5tool.pdmi.cn/library/pubpages/ltonepage/417/index.html',136);
+</script>
+</body>
+</html>

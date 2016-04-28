@@ -1,0 +1,65 @@
+<section id="fly-background-eidt" class="fly-background-eidt">
+    <section class="fly-eidt-bg">
+        <div style="background-image:url({{ltP.index.focusPage.styles['background-image']}});background-color: {{ltP.index.focusPage.styles['background-color']}}">
+        </div>
+        <div>
+            <input type="button" value="替换" ng-click="changePicSrc('/page/editBg')"/>
+            <input type="button" value="删除" ng-click="ltP.index.focusPage.styles['background-image']=''"/>
+        </div>
+    </section>
+    <section class="fly-edit-container">
+        <table style=" margin-left: .7rem; font-size: 16px; width:100%; font-family:'微软雅黑';">
+            <tr>
+                <td style="width:20px;">背&nbsp;&nbsp;景&nbsp;&nbsp;色</td>
+                <td>
+                    <minicolor lt-id='lt-p-minicolor' color-type='page-bgcolor' lt-model='ltP.index.focusPage.styles["background-color"]'></minicolor>
+                </td>
+            </tr>
+            <tr>
+                <td>背景重复</td>
+                <td>
+                    <fly-dropdownlist fly-width="3.2rem" fly-height="2.4rem"
+                                      css-name="page-backgroundRepeat-bgrepeat"
+                                      dropdownlist-id="ltP.index.focusPage.pageId+'-bgReopeat'"
+                                      fly-model='ltP.index.focusPage.focusBgRepeatType'
+                            >
+                        <fly-dropdownlist-option text="不重复" value='no-repeat'></fly-dropdownlist-option>
+                        <fly-dropdownlist-option text="x轴重复" value='repeat-x'></fly-dropdownlist-option>
+                        <fly-dropdownlist-option text="y轴重复" value='repeat-y'></fly-dropdownlist-option>
+                        <fly-dropdownlist-option text="xy轴重复" value='repeat'></fly-dropdownlist-option>
+                    </fly-dropdownlist>
+                </td>
+            </tr>
+            <tr>
+                <td>背景位置</td>
+                <td>
+                    <fly-dropdownlist fly-width="2.5rem" fly-height="2.6rem"
+                                      css-name="page-backgroundPosition-bgposition"
+                                      dropdownlist-id="ltP.index.focusPage.pageId+'-bgPosition'"
+                                      fly-model='ltP.index.focusPage.focusBgPosition'>
+                        <fly-dropdownlist-option text="左上角" value="left top"></fly-dropdownlist-option>
+                        <fly-dropdownlist-option text="中心点" value="center center"></fly-dropdownlist-option>
+                        <fly-dropdownlist-option text="中心上" value="center top"></fly-dropdownlist-option>
+                        <fly-dropdownlist-option text="中心下" value="center bottom"></fly-dropdownlist-option>
+                    </fly-dropdownlist>
+                </td>
+            </tr>
+            <tr>
+                <td>背景大小</td>
+                <td>
+                    <fly-dropdownlist fly-width="2.5rem" fly-height="2rem"
+                                      css-name="page-backgroundSize-bgsize"
+                                      dropdownlist-id="ltP.index.focusPage.pageId+'-bgSize'"
+                                      fly-model='ltP.index.focusPage.focusBgSize'>
+                        <fly-dropdownlist-option text="默认" value="auto"></fly-dropdownlist-option>
+                        <fly-dropdownlist-option text="覆盖" value="cover"></fly-dropdownlist-option>
+                        <fly-dropdownlist-option text="包涵" value="contain"></fly-dropdownlist-option>
+                    </fly-dropdownlist>
+                </td>
+            </tr>
+        </table>
+    </section>
+    <section class="fly-bottom">
+        <input type="button" value="确  认" ng-click="goHome()"/>
+    </section>
+</section>

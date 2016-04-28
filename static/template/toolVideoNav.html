@@ -1,0 +1,16 @@
+﻿<section id="fly-video-container">
+    <section class="fly-video-pic">
+        <div style="background-image: url({{ltP.index.focusWidget.poster}});background-position: center center; background-repeat: no-repeat; ">
+            <input type="button" value="更换封面" ng-click="changePicSrc('/video/attr')"/>
+        </div>
+    </section>
+    <section class="fly-video-src">
+        <div>
+            <input type="text" ng-model="ltP.index.focusWidget.src"/>
+        </div>
+        <div>
+            <input type="button" value="视频库" class="active" ng-click="changeVideo('/video/attr')"/>
+            <input type="button" value="本地上传" ng-click="getVideoFromNative()"/>
+        </div>
+    </section>
+</section>

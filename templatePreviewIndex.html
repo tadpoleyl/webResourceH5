@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>预览</title>
+    <link rel="stylesheet" href="static/css/previewMain.css"/>
+</head>
+<body>
+<section class="fly-header">
+    <div class="fly-back flex-box">
+        <div id="fly-back"></div>
+    </div>
+</section>
+<section id="fly-main">
+    <iframe id="iframe" src="">
+    </iframe>
+    <footer id="pre-footer">
+        <div class="fly-template-btn">
+            <div>
+                <input id="copy" type="button" value="复制模板号"/>
+                <span id="templateNum"></span>
+            </div>
+            <div>
+                <input id="multiplexing" type="button" value="复用"/>
+                <span></span>
+                <span class="star-five" style="background: url(static/images/star1.png) no-repeat center center; background-size: contain;"></span>
+            </div>
+        </div>
+    </footer>
+</section>
+
+<script src="static/js/jquery-1.11.0.min.js"></script>
+<script>
+    $(document).on("touchmove", function (e) {
+        e.preventDefault();
+    });
+    String.prototype.hump = function () {
+        return this.replace(/([A-Z])/g, "-$1").toLowerCase();
+    }
+    //返回
+    $("#fly-back").tap(function () {
+        H5Manager.deallocWebView();
+        return !1;
+    });
+    //复制模板号
+    $("#copy").tap(function(e){
+        e.preventDefault();
+        H5Manager.copyString({'content':$("#templateNum").html()});
+        return !1;
+    });
+    //复用
+    $("#multiplexing").tap(function(e){
+        e.preventDefault();
+        return !1;
+    });
+    function init(url,num){
+        var iframe=$("#iframe");
+        iframe.height($(window).height()-44);
+        $("#templateNum").html(num);
+        if(url.indexOf('http')>-1){
+            iframe.attr("src",url);
+        }
+        else{
+            window.url=url;
+            iframe.attr("src","previewJson.html");
+        }
+    }
+    init('http://h5tool.pdmi.cn/library/pubpages/ltonepage/417/index.html',12312312);
+
+</script>
+</body>
+</html>

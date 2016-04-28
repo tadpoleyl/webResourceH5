@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="apple-touch-fullscreen" content="YES" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta http-equiv="Expires" content="-1" />
+    <meta http-equiv="pragram" content="no-cache" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, minimal-ui, user-scalable=no">
+    <link href="static/css/previewIndex.css" rel="stylesheet" />
+    <link href="static/css/animation.css" rel="stylesheet" />
+    <link href="static/css/animations.css" rel="stylesheet" />
+    <title></title>
+</head>
+<body>
+
+<div style="display:none" id="shareLogo"></div>
+
+<article class="phone pc">
+    <header class="pc">
+        <div class="page-header-bar"></div>
+        <div class="page-header-bar"></div>
+    </header>
+    <section id="container">
+        <div id="loading">
+            <section class="waiting">加载中,请稍候...</section>
+        </div>
+        <article id="unpublish">
+        </article>
+        <section id="main" class="fly-perspective">
+        </section>
+    </section>
+    <footer id="pre-footer">
+        <input type="button" value="编辑"/>
+        <input type="button" value="翻页"/>
+        <input type="button" value="背景音乐"/>
+        <input type="button" value="分享"/>
+        <input type="button" value="Loading"/>
+        <input type="button" value="发布"/>
+    </footer>
+    <section class="fly-share">
+        <div id="production_share">
+            <div class="code_share">
+                <div class="production_share_left">
+                    <img src="../images/code.jpg" alt="">
+                </div>
+                <div class="production_share_right">
+                    <button class="active">分享朋友圈</button>
+                    <button>分享微信好友</button>
+                    <button>分享QQ好友</button>
+                </div>
+            </div>
+            <div class="production_url">
+                作品链接<input type="text" placeholder="URL地址">
+            </div>
+        </div>
+        <div class="cancel">
+            <input id="cancel" type="button" value="取消"/>
+        </div>
+    </section>
+</article>
+<script src="static/previewstatic/js/jweixin-1.0.0.js"></script>
+<script src="static/previewstatic/js/zepto-touch.min.js"></script>
+<script src="static/js/requirejs/require.js" data-main="static/previewstatic/js/ltAll"></script>
+<script>
+
+    alert(123)
+
+    String.prototype.hump = function () {
+        return this.replace(/([A-Z])/g, "-$1").toLowerCase();
+    }
+
+    var local = window.location.href;
+    function isWX() {
+        var ua = window.navigator.userAgent.toLowerCase();
+        return ua.match(/MicroMessenger/i) == 'micromessenger';
+    }
+
+    var openid = "";
+    if (isWX()) {
+        openid = getQuery("openid", window);
+        if (!openid || openid == '') {
+            var h = local.substring(0, local.indexOf("?") > -1 ? local.indexOf("?") : local.length);
+            var oauth2 = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxfacf4a639d9e3bcc&redirect_uri=http%3a%2f%2fwww.zmiti.com%2fwxapi%2fwechatOauth2&response_type=code&scope=snsapi_base&state=' + h + '#wechat_redirect';
+            window.location.href = oauth2;
+        }
+    }
+    var inputs=$("#pre-footer input");
+    //编辑
+    $(inputs.eq(0)).tap(function(){
+        parent.ltP.index.$scope.$apply(function(){
+            parent.ltP.index.$scope.isShowDialog = false;
+        });
+    });
+    //翻页
+    $(inputs.eq(1)).tap(function(){
+        parent.ltP.index.$scope.$apply(function(){
+            parent.ltP.index.$scope.redirectTo("/page/flip");
+            parent.ltP.index.$scope.goBackPath="/page/preview";
+        });
+    });
+    //背景音乐
+    $(inputs.eq(2)).tap(function(){
+        parent.ltP.index.$scope.$apply(function(){
+            parent.ltP.index.$scope.isAudio=false;
+            parent.ltP.index.$scope.redirectTo("/audio/attr");
+            parent.ltP.index.$scope.goBackPath="/page/preview";
+            if(!parent.ltP.index.global.APP.bgSound){
+                var option = {
+                    id: parent.ltP.index.zmitiService.getGuid(),
+                    name: '背景音乐',//组件名称。
+                    type: 'music',//组件类型
+                    src: "",
+                    autoplay: 'true',
+                    icoSrc: "",
+                    loop: 'true',
+                    backgroundPosition: '0 0',
+                    styles: {
+                    },
+                    isLocked: true,//是否锁定。
+                    events: [],//事件对象、默认为空
+                    animation: []//组件的动画
+                };
+                parent.ltP.index.global.APP.bgSound = option;
+            }
+            parent.ltP.index.zmitiService.setMusic();
+        });
+    });
+    //分享
+    $(inputs.eq(3)).tap(function(){
+        $(".fly-share").addClass("fly-share-active");
+    });
+    $("#cancel").tap(function(){
+        $(".fly-share").removeClass("fly-share-active");
+    });
+    //Loading
+    $(inputs.eq(4)).tap(function(){
+        parent.ltP.index.$scope.$apply(function(){
+            parent.ltP.index.$scope.redirectTo("/page/loading");
+            parent.ltP.index.$scope.goBackPath="/page/preview";
+        });
+    });
+    //发布
+    $(inputs.eq(5)).tap(function(){
+        parent.ltP.index.$scope.$apply(function(){
+            parent.ltP.index.$scope.redirectTo("/page/projectSetting");
+            parent.ltP.index.$scope.goBackPath="/page/preview";
+        });
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,10 @@
+﻿<section style="width:{{flyWidth}}" class="fly-dropdownlist" id="{{dropdownlistId}}">
+    <div class="fly-current-val" ng-bind="flyModel"></div>
+    <div class="tip"></div>
+    <section class="fly-dropdownlist-items" style="height: {{flyHeight}}">
+        <ul class="fly-dropdown-container" ng-transclude>
+            <!--<li class="fly-dropdown-item"  ng-class="{true:'active',false:''}[currentItem === item.value]" ng-repeat="item in items" data-value="{{item.value}}" ng-bind="item.text"></li>-->
+        </ul>
+    </section>
+    <div class="fly-mask"></div>
+</section>

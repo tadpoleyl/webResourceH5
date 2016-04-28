@@ -1,0 +1,15 @@
+<div id="fly-loading">
+    <section>
+        <header>Loading设置</header>
+        <div class="fly-loading-content" ng-style="{backgroundColor:ltP.index.global.APP.pubSource.loadingColor,backgroundImage:'url('+ltP.index.global.APP.pubSource.loadingBg+')',backgroundSize:'cover'}">
+            <button ng-click="editLoading('/page/loading','loadingBg')">背景图设置</button>
+            <div class="fly-loading-img">
+                <img ng-src="{{ltP.index.global.APP.pubSource.loadingSrc}}" alt=""/>
+            </div>
+            <button ng-click="editLoading('/page/loading','loadingSrc')" class="fly-loading-img-btn">图标设置</button>
+        </div>
+    </section>
+    <div class="fly-btn fly-bottom">
+        <input type="button" name="name" value="使用默认加载页" ng-click="useDefaultLoadingPage();"  />
+    </div>
+</div>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html ng-controller="picLibraryController">
+<head lang="en">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="apple-touch-fullscreen" content="YES" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta http-equiv="Expires" content="-1" />
+    <meta http-equiv="pragram" content="no-cache" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, minimal-ui, user-scalable=no">
+    <title>图片库</title>
+    <link rel="stylesheet" href="static/css/picLibrary.css"/>
+</head>
+<body>
+<div id="fly-ajax-loading" style="z-index: -100;opacity: 0" class="fly-ajax-loading">
+    <div class="spinner">
+        <div class="spinner-container container1">
+            <div class="circle1"></div>
+            <div class="circle2"></div>
+            <div class="circle3"></div>
+            <div class="circle4"></div>
+        </div>
+        <div class="spinner-container container2">
+            <div class="circle1"></div>
+            <div class="circle2"></div>
+            <div class="circle3"></div>
+            <div class="circle4"></div>
+        </div>
+        <div class="spinner-container container3">
+            <div class="circle1"></div>
+            <div class="circle2"></div>
+            <div class="circle3"></div>
+            <div class="circle4"></div>
+        </div>
+    </div>
+</div>
+<section class="fly-header">
+    <div class="fly-back flex-box">
+        <div fly-back></div>
+    </div>
+</section>
+<section id="fly-pic-library-container">
+    <header class="fly-pic-btn">
+        <input type="button" value="图片库" ng-class="{true:'active', false:''}[!btnClass]" ng-click="picBtn(1)"/>
+        <input type="button" value="我的图片" ng-class="{true:'active', false:''}[btnClass]" ng-click="picBtn(0)"/>
+    </header>
+    <section class="fly-pic-list" id="fly-pic-list">
+        <div id="fly-my-pic" class="fly-my-pic">
+            <header class="fly-pic-type">
+                <div id="next"></div>
+                <div id="fly-pic-list-items" class="fly-pic-list-items">
+                    <ul fly-pic-type-title>
+                        <li ng-class="{true:'active',false:''}[$index===0]" ng-repeat="item in ltP.index.$scope.typeTitle track by $index" data-id="{{item.id}}" ng-bind="item.name"></li>
+                    </ul>
+                </div>
+                <div id="prev"></div>
+            </header>
+            <section class="fly-type-items">
+                <ul fly-pic-type-items>
+                    <li ng-repeat="item in ltP.index.$scope.typeItemList track by $index" data-id="{{item.id}}">{{item.name}}<span></span></li>
+                </ul>
+            </section>
+            <section id="fly-my-pic-list" class="fly-list-items">
+                <ul fly-pic-item>
+                    <li ng-repeat="item in ltP.index.$scope.picList track by $index">
+                        <img ng-class="{true:'active',false:''}[$index===0]" src="{{item.src}}" alt=""/>
+                    </li>
+                </ul>
+            </section>
+        </div>
+    </section>
+</section>
+<section class="fly-bottom">
+    <input type="button" value="确  认"/>
+    <input type="button" value="清  除" ng-click="clearActive()"/>
+</section>
+<script src="static/js/jquery-1.11.0.min.js"></script>
+<script src="static/js/angular.min.js"></script>
+<script src="static/js/iscroll.js"></script>
+<script src="static/js/picLibrary.js"></script>
+<script>
+    $(document).on("touchmove", function (e) {
+        e.preventDefault();
+    });
+</script>
+</body>
+</html>

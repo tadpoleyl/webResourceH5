@@ -1,0 +1,28 @@
+﻿<section id="fly-animation-container" class="fly-animation-container"  ng-class="{ture:'active',false:'default'}[isshow]" style="position
+    :absolute;">
+    <section class="fly-animation">
+        <div class="fly-animation-ico" ng-style="{animationName:widget.animation[0].animationName,webkitAnimationName:widget.animation[0].animationName,animationDuration:widget.animation[0].animationDuration+'s',webkitAnimationDuration:widget.animation[0].animationDuration+'s',animationDelay:widget.animation[0].animationDelay+'s',webkitAnimationDelay:widget.animation[0].animationDelay+'s',animationIterationCount:widget.animation[0].cycle ? 'infinite' :widget.animation[0].animationIterationCount,webkitAnimationIterationCount:widget.animation[0].cycle ? 'infinite' :widget.animation[0].animationIterationCount}"><img src="static/images/animate.png" alt="动画" /></div>
+        <div hidden class="fly-animation-item">
+            动画时间：<input type="text" value="" ng-model="widget.animation[0].animationDuration" disabled />s
+        </div>
+        <div hidden class="fly-animation-item">
+            延迟时间：<input type="text" value="" disabled ng-model="widget.animation[0].animationDelay" />s
+        </div>
+        <div class="fly-animation-item fly-animation-cycle" ng-if="!widget.animation[0].cycle">
+            次数：&nbsp;&nbsp;<input type="text" value="" ng-model="widget.animation[0].animationIterationCount" />
+        </div>
+        <div class="fly-animation-item">
+            <label>循环：</label>
+            <fly-switch fly-model="widget.animation[0].cycle" default-color="#ea2e49" active-color="#78bc8e" checkbox-id="fly-animate-cycle"></fly-switch>
+        </div>
+    </section>
+    <div class="fly-line-tip-top fly-line-tip"></div>
+    <section class="fly-animation-all">
+        <ul>
+
+            <li><button ng-click="setAnimate()" ng-class="{true:'active',false:''}[widget.animation.length===0]" class="animate-name">无</button></li>
+            <li  ng-repeat="animate in animations"><button ng-click="setAnimate(animate.animationName)" ng-class="{true:'active',false:''}[widget.animation[0].animationName === animate.animationName]" class="animate-name" ng-bind="animate.displayName"></button></li>
+        </ul>
+    </section>
+    <div class="fly-line-tip-bottom fly-line-tip"></div>
+</section>

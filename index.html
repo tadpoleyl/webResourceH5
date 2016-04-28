@@ -1,0 +1,84 @@
+﻿<!--sun is a sb person , mb ,zhe project allways ti some bitch xqs ,i hao want kill t , -->
+<!DOCTYPE html>
+<html ng-controller="zmitiWapController">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="apple-touch-fullscreen" content="YES" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta http-equiv="Expires" content="-1" />
+    <meta http-equiv="pragram" content="no-cache" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, minimal-ui, user-scalable=no">
+    <title>智媒体</title>
+    <link href="static/css/index.css" rel="stylesheet" />
+    <link href="static/css/jquery.minicolors.css" rel="stylesheet" />
+    <link href="static/css/animation.css" rel="stylesheet" />
+    <link href="static/css/animations.css" rel="stylesheet" />
+</head>
+<body>
+
+
+    <div id="fly-ajax-loading" style="z-index: -100;opacity: 0" class="fly-ajax-loading">
+        <div class="spinner">
+            <div class="spinner-container container1">
+                <div class="circle1"></div>
+                <div class="circle2"></div>
+                <div class="circle3"></div>
+                <div class="circle4"></div>
+            </div>
+            <div class="spinner-container container2">
+                <div class="circle1"></div>
+                <div class="circle2"></div>
+                <div class="circle3"></div>
+                <div class="circle4"></div>
+            </div>
+            <div class="spinner-container container3">
+                <div class="circle1"></div>
+                <div class="circle2"></div>
+                <div class="circle3"></div>
+                <div class="circle4"></div>
+            </div>
+        </div>
+    </div>
+    <fly-header fly-title="ltP.index.global.APP.appName"></fly-header>
+    <section id="fly-container">
+        <aside class="fly-header-num">
+            <div><span ng-bind="ltP.index.focusPageIndex"></span><span>/</span><span ng-bind="ltP.index.groups[0].pages.length"></span></div>
+        </aside>
+        <section id="J-lt-p-screen" contenteditable="false" >
+            <stage lt-stage-page="ltP.index" lt-stage-type="1"></stage>
+        </section>
+        <section ng-view id="fly-operator" class="fly-operator active" ng-if='isShowDialog'></section>
+    </section>
+    <aside class="fly-footer">
+        <input type="button" value="背" ng-click="ChangePageBackground()"/>
+    </aside>
+    <script src="static/js/jquery-1.11.0.min.js"></script>
+    <script src="static/js/requirejs/require.js"></script>
+    <script src="static/js/ltAll.js"></script>
+    <!--data-main="static/js/app"-->
+    <script>
+
+        var paths ={
+            angular: "js/angular.min",
+            directive: "js/directive",
+            jquery: "js/jquery-1.11.0.min",
+            minicolor: "js/jquery.minicolors.min",
+            app:"js/app",
+            previewAll:"previewstatic/js/ltAll",
+            weixin:"previewstatic/js/jweixin-1.0.0",
+            main:"previewstatic/js/main"
+        }
+
+        requirejs.config({
+            baseUrl: "static/",
+            paths:paths
+        });
+
+        requirejs(["app"],function(init){
+           init("static/pages/136/static/data.json");
+        });
+    </script>
+</body>
+</html>

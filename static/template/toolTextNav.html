@@ -1,0 +1,107 @@
+﻿<style>
+    div{
+
+    }
+</style>﻿
+<section id="fly-text-container" >
+    <section class="fly-text-container" ng-init="text =ltP.index.focusWidget">
+        <div ng-style="{width:text.styles.width,marginLeft:text.styles.marginLeft+'px',zIndex:text.styles.zIndex,right:text.styles.right,bottom:text.styles.bottom,display:text.styles.display,opacity:text.styles.opacity/100}">
+            <p ng-bind-html="text.text | to_trusted" strip-br="true" contenteditable="true" select-non-editable="true" ng-style="{backgroundColor:text.styles.backgroundColor,color:text.styles.color,width:text.styles.width,lineHeight:text.styles.lineHeight+'px',fontSize:text.styles.fontSize,boxShadow:text.styles.boxShadow,webkitTransform:'rotate('+text.styles.rotate+'deg)',transform:'rotate('+text.styles.rotate+'deg)',textIndent:text.styles.textIndent,opacity:text.styles.opacity/100,height:text.styles.height,borderStyle:text.styles.borderStyle,borderWidth:text.styles.borderWidth,borderColor:text.styles.borderColor,borderRadius:text.styles.borderRadius+'%',textAlign:text.styles.textAlign,display:text.styles.display}" class="lt-widget-text" id="{{'fly-'+text.id}}" style="z-index:2;position:relative;outline:none;overflow:hidden;text-overflow:ellipsis;"></p>
+        </div>
+    </section>
+    <h2 class="fly-text-bar fly-btn-group" fly-btn-group='text' ng-init="curPanel=false">
+        <div class="fly-btn" ng-class="{true:'active',false:''}[curPanel]">样式</div>
+        <span>|</span>
+        <div class="fly-btn" ng-class="{true:'active',false:''}[!curPanel]">动画</div>
+    </h2>
+    <div class="fly-line"></div>
+    <animate widget="ltP.index.focusWidget" isshow="!curPanel"></animate>
+    <section  class="fly-widget-property" ng-class="{true:'active',false:'default'}[curPanel]">
+        <table style=" margin-left: .7rem; font-size: 16px; width:100%; font-family:Arial;">
+            <tr>
+
+                <td style="width:20px;">字&nbsp;&nbsp;&nbsp;&nbsp;号：</td>
+                <td>
+                    <fly-dropdownlist fly-width="2.5rem" fly-height="3rem"
+                                      css-name="widget-fontSize"
+                                      dropdownlist-id="ltP.index.focusWidget.id+'-font-size'"
+                                      fly-model='ltP.index.focusWidget.styles.fontSize'>
+                        <fly-dropdownlist-option text="12px" value="12px"></fly-dropdownlist-option>
+                        <fly-dropdownlist-option text="14px" value="14px"></fly-dropdownlist-option>
+                        <fly-dropdownlist-option text="16px" value="16px"></fly-dropdownlist-option>
+                        <fly-dropdownlist-option text="18px" value="18px"></fly-dropdownlist-option>
+                        <fly-dropdownlist-option text="20px" value="20px"></fly-dropdownlist-option>
+                        <fly-dropdownlist-option text="22px" value="22px"></fly-dropdownlist-option>
+                        <fly-dropdownlist-option text="24px" value="24px"></fly-dropdownlist-option>
+                        <fly-dropdownlist-option text="26px" value="26px"></fly-dropdownlist-option>
+                        <fly-dropdownlist-option text="28px" value="28px"></fly-dropdownlist-option>
+                        <fly-dropdownlist-option text="30px" value="30px"></fly-dropdownlist-option>
+                        <fly-dropdownlist-option text="40px" value="40px"></fly-dropdownlist-option>
+                        <fly-dropdownlist-option text="50px" value="50px"></fly-dropdownlist-option>
+                        <fly-dropdownlist-option text="60px" value="60px"></fly-dropdownlist-option>
+                        <fly-dropdownlist-option text="70px" value="70px"></fly-dropdownlist-option>
+                        <fly-dropdownlist-option text="80px" value="80px"></fly-dropdownlist-option>
+                        <fly-dropdownlist-option text="90px" value="90px"></fly-dropdownlist-option>
+                        <fly-dropdownlist-option text="100px" value="100px"></fly-dropdownlist-option>
+                    </fly-dropdownlist>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    颜&nbsp;&nbsp;&nbsp;&nbsp;色：
+                </td>
+                <td>
+                    <minicolor lt-id='lt-text-minicolor' color-type='text-color' lt-model='ltP.index.focusWidget.styles.color'></minicolor>
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div>
+                        背景色：
+                    </div>
+                </td>
+                <td>
+                    <minicolor lt-id='lt-text-bg-minicolor' color-type='text-backgroundColor' lt-model='ltP.index.focusWidget.styles["backgroundColor"]'></minicolor>
+                </td>
+            </tr>
+            <tr>
+                <td>透明度：</td>
+                <td>
+                    <fly-dropdownlist fly-width="2.2rem" fly-height="3rem"
+                                      css-name="widget-opacity"
+                                      dropdownlist-id="ltP.index.focusWidget.id+'-opacity'"
+                                      fly-model='ltP.index.focusWidget.styles.opacity'>
+                        <fly-dropdownlist-option text="100" value="100"></fly-dropdownlist-option>
+                        <fly-dropdownlist-option text="90" value="90"></fly-dropdownlist-option>
+                        <fly-dropdownlist-option text="80" value="80"></fly-dropdownlist-option>
+                        <fly-dropdownlist-option text="70" value="70"></fly-dropdownlist-option>
+                        <fly-dropdownlist-option text="60" value="60"></fly-dropdownlist-option>
+                        <fly-dropdownlist-option text="50" value="50"></fly-dropdownlist-option>
+                        <fly-dropdownlist-option text="40" value="40"></fly-dropdownlist-option>
+                        <fly-dropdownlist-option text="30" value="30"></fly-dropdownlist-option>
+                        <fly-dropdownlist-option text="20" value="20"></fly-dropdownlist-option>
+                        <fly-dropdownlist-option text="10" value=10"></fly-dropdownlist-option>
+                    </fly-dropdownlist>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <ul class="fly-text-align" fly-text-align ng-init="!ltP.index.focusWidget.styles.textAlign && (ltP.index.focusWidget.styles.textAlign = 'left')">
+                        <li data-align="left" ng-class="{true:'active',false:''}[ltP.index.focusWidget.styles.textAlign==='left']">左对齐</li>
+                        <li data-align="center" ng-class="{true:'active',false:''}[ltP.index.focusWidget.styles.textAlign==='center']">居中对齐</li>
+                        <li data-align="right" ng-class="{true:'active',false:''}[ltP.index.focusWidget.styles.textAlign==='right']">右对齐</li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <p><span>文字链接&nbsp;&nbsp;</span><input type="text" ng-model="ltP.index.focusWidget.href" style="width: 5.5rem;"/></p>
+                </td>
+            </tr>
+        </table>
+    </section>
+    <section class="fly-bottom">
+    <input type="button" value="确  认" ng-click="goHome()"/>
+    </section>
+</section>

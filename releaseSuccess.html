@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="apple-touch-fullscreen" content="YES" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta http-equiv="Expires" content="-1" />
+    <meta http-equiv="pragram" content="no-cache" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, minimal-ui, user-scalable=no">
+    <title>发布成功</title>
+    <link rel="stylesheet" href="static/css/release.css"/>
+</head>
+<body style="background-color: #eeeeee">
+<section class="fly-header">
+    <div class="fly-back flex-box">
+        <div id="fly-back"></div>
+    </div>
+</section>
+<section id="fly-page-release">
+    <header class="release-header">
+        <div></div>
+    </header>
+    <section class="release-content">
+        <div class="production_share">
+            <div class="code_share">
+                <div class="production_share_left">
+                    <div>
+                        <img src="static/images/code.jpg" alt="">
+                    </div>
+                </div>
+                <div class="production_share_right">
+                    <button class="active">分享朋友圈</button>
+                    <button>分享微信好友</button>
+                    <button>分享QQ好友</button>
+                </div>
+            </div>
+            <div class="production_url">
+                <span>作品链接</span><input type="text" placeholder="URL地址">
+            </div>
+        </div>
+    </section>
+    <section class="release-bottom">
+        <input id="page-see" type="button" value="去看一下"/>
+    </section>
+</section>
+<script src="static/js/jquery-1.11.0.min.js"></script>
+<script>
+    $(document).on("touchmove", function (e) {
+        e.preventDefault();
+    });
+    $(".production_share_right").tap(function(e){
+        if(e.target.nodeName==="BUTTON"){
+            $(e.target).addClass("active").siblings().removeClass("active");
+        }
+        return !1;
+    });
+    //返回
+    $("#fly-back").tap(function () {
+        H5Manager.deallocWebView();
+        return !1;
+    });
+    $("#page-see").tap(function(){
+        alert("去看一下");
+        return !1;
+    });
+
+</script>
+</body>
+</html>

@@ -1,0 +1,74 @@
+﻿<section id="fly-image-container">
+    <section class="fly-img-container" ng-init="img =ltP.index.focusWidget">
+        <div class='lt-p-{{img.index}}'>
+            <img style="border-radius:{{img.styles.borderRadius}}%;opacity:{{img.styles.opacity/100}};width:{{img.styles.width}};" draggable="false" id="{{ltStageType==='1'?img.id:''}}" class="lt-widget-image" ng-src="{{img.src}}" alt="" />
+        </div>
+    </section>
+    <section class="fly-img-replace">
+        <input type="button" value="替换" ng-click="ShowPic()"/>
+        <input type="button" value="剪切" ng-click="cropImage()"/>
+    </section>
+    <h2 class="fly-text-bar fly-btn-group" fly-btn-group='image' ng-init="curPanel=false">
+        <div class="fly-btn" ng-class="{true:'active',false:''}[!curPanel]">样式</div>
+        <span>|</span>
+        <div class="fly-btn" ng-class="{true:'active',false:''}[curPanel]">动画</div>
+    </h2>
+    <div class="fly-line"></div>
+    <animate  widget="ltP.index.focusWidget" isshow="curPanel"></animate>
+    <section  class="fly-widget-property" ng-class="{true:'active',false:'default'}[!curPanel]" style="overflow:hidden;position:relative;">
+        <table style="margin-left: .5rem;">
+            <tr>
+                <td>透明度：</td>
+                <td>
+                    <fly-dropdownlist fly-width="2.2rem" fly-height="3rem"
+                                      css-name="opacity"
+                                      dropdownlist-id="ltP.index.focusWidget.id+'-opacity'"
+                                      fly-model='ltP.index.focusWidget.styles.opacity'>
+                        <fly-dropdownlist-option text="10" value="10"></fly-dropdownlist-option>
+                        <fly-dropdownlist-option text="20" value="20"></fly-dropdownlist-option>
+                        <fly-dropdownlist-option text="30" value="30"></fly-dropdownlist-option>
+                        <fly-dropdownlist-option text="40" value="40"></fly-dropdownlist-option>
+                        <fly-dropdownlist-option text="50" value="50"></fly-dropdownlist-option>
+                        <fly-dropdownlist-option text="60" value="60"></fly-dropdownlist-option>
+                        <fly-dropdownlist-option text="70" value="70"></fly-dropdownlist-option>
+                        <fly-dropdownlist-option text="80" value="80"></fly-dropdownlist-option>
+                        <fly-dropdownlist-option text="90" value="90"></fly-dropdownlist-option>
+                        <fly-dropdownlist-option text="100" value="100"></fly-dropdownlist-option>
+                    </fly-dropdownlist>
+                </td>
+            </tr>
+            <tr>
+                <td>弧  度：</td>
+                <td>
+                    <fly-dropdownlist fly-width="2.2rem" fly-height="3rem"
+                                      css-name="widget-borderRadius"
+                                      dropdownlist-id="ltP.index.focusWidget.id+'-border-radius'"
+                                      fly-model='ltP.index.focusWidget.styles.borderRadius'
+                            >
+                        <fly-dropdownlist-option text="0" value=0></fly-dropdownlist-option>
+                        <fly-dropdownlist-option text="10" value=10></fly-dropdownlist-option>
+                        <fly-dropdownlist-option text="20" value=20></fly-dropdownlist-option>
+                        <fly-dropdownlist-option text="30" value=30></fly-dropdownlist-option>
+                        <fly-dropdownlist-option text="40" value=40></fly-dropdownlist-option>
+                        <fly-dropdownlist-option text="50" value=50></fly-dropdownlist-option>
+                    </fly-dropdownlist>
+                </td>
+            </tr>
+            <tr>
+                <td>链  接：</td>
+                <td>
+                    <input type="text" ng-model="ltP.index.focusWidget.href" style="width:7rem;"/>
+                </td>
+            </tr>
+        </table>
+    </section>
+    <section class="fly-bottom">
+        <input type="button" value="确  认" ng-click="ltP.index.$scope.isShowDialog = false"/>
+    </section>
+    <section class="fly-image-menu">
+        <ul fly-select>
+            <li>本地相册</li>
+            <li>在线图库</li>
+        </ul>
+    </section>
+</section>

@@ -1,0 +1,63 @@
+<section id="fly-slider">
+    <header class="fly-slider-header">
+        <dl>
+            <dt>动画类型</dt>
+            <dt>
+                <fly-dropdownlist fly-width="3.1rem" fly-height="3rem"
+                                  css-name="widget-sliderChangeType"
+                                  dropdownlist-id="ltP.index.focusWidget.id+'-sliderChangeType'"
+                                  fly-model='ltP.index.focusWidget.sliderChangeTypeName'>
+                    <fly-dropdownlist-option text="向左淡入" value="6"></fly-dropdownlist-option>
+                    <fly-dropdownlist-option text="向上淡入" value="8"></fly-dropdownlist-option>
+                    <fly-dropdownlist-option text="向右淡入" value="10"></fly-dropdownlist-option>
+                    <fly-dropdownlist-option text="向上淡出" value="12"></fly-dropdownlist-option>
+                    <fly-dropdownlist-option text="向左缩放" value="18"></fly-dropdownlist-option>
+                    <fly-dropdownlist-option text="向下缩放" value="20"></fly-dropdownlist-option>
+                    <fly-dropdownlist-option text="中心缩放" value="22"></fly-dropdownlist-option>
+                    <fly-dropdownlist-option text="右移中心放大" value="24"></fly-dropdownlist-option>
+                    <fly-dropdownlist-option text="上移中心放大" value="26"></fly-dropdownlist-option>
+                    <fly-dropdownlist-option text="左移向里" value="29"></fly-dropdownlist-option>
+                    <fly-dropdownlist-option text="下移向里" value="31"></fly-dropdownlist-option>
+                    <fly-dropdownlist-option text="3D向里左右" value="33"></fly-dropdownlist-option>
+                    <fly-dropdownlist-option text="3D向里上下" value="35"></fly-dropdownlist-option>
+                    <fly-dropdownlist-option text="向左向里" value="59"></fly-dropdownlist-option>
+                    <fly-dropdownlist-option text="向上向里" value="41"></fly-dropdownlist-option>
+                    <fly-dropdownlist-option text="左右" value="43"></fly-dropdownlist-option>
+                    <fly-dropdownlist-option text="上下" value="45"></fly-dropdownlist-option>
+                    <fly-dropdownlist-option text="3D右向左" value="47"></fly-dropdownlist-option>
+                    <fly-dropdownlist-option value="49" text="3D下向上"></fly-dropdownlist-option></fly-dropdownlist-option>
+                    <fly-dropdownlist-option value="51" text="3D左向右"></fly-dropdownlist-option></fly-dropdownlist-option>
+                    <fly-dropdownlist-option value="53" text="3D上向下"></fly-dropdownlist-option>
+                    <fly-dropdownlist-option value="55" text="向左移入"></fly-dropdownlist-option></fly-dropdownlist-option>
+                    <fly-dropdownlist-option value="57" text="向上移入"></fly-dropdownlist-option>
+                    <fly-dropdownlist-option value="59" text="3D立方体向右"></fly-dropdownlist-option></fly-dropdownlist-option>
+                    <fly-dropdownlist-option value="61" text="3D立方体向上"></fly-dropdownlist-option>
+                    <fly-dropdownlist-option value="63" text="旋转木马向左"></fly-dropdownlist-option></fly-dropdownlist-option>
+                    <fly-dropdownlist-option value="65" text="旋转木马向上"></fly-dropdownlist-option>
+                </fly-dropdownlist>
+            </dt>
+            <dt>自动播放</dt>
+            <dt>
+                <fly-switch fly-model="ltP.index.focusWidget.automaticPlay" default-color="#ea2e49" active-color="#78bc8e" checkbox-id="fly-animate-cycle"></fly-switch>
+            </dt>
+        </dl>
+    </header>
+    <section class="fly-slider-pic-list">
+        <ul>
+            <li ng-repeat="item in ltP.index.focusWidget.src">
+                <div style="background: url({{item.src}}) no-repeat center center; background-size: cover;">
+                    <input type="button" value="更换封面" ng-click="sliderChange(item.index)"/>
+                </div>
+            </li>
+            <li fly-slider-change-pic style="{{ltP.index.focusWidget.src.length % 2===0 ? 'border:none':''}}">
+                <div>
+                    <div></div>
+                    <div>选择其他图片</div>
+                </div>
+            </li>
+        </ul>
+    </section>
+    <section class="fly-bottom">
+        <input type="button" value="确  认" ng-click="ltP.index.$scope.isShowDialog = false"/>
+    </section>
+</section>

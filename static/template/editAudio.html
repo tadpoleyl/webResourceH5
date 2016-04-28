@@ -1,0 +1,55 @@
+<section id="fly-audio-container">
+    <header class="fly-audio-header">
+        <div fly-change-audio>
+            <input type="button" value="机构音乐库"/>
+            <input type="button" value="我的音乐" class="action"/>
+        </div>
+        <div>
+            <span>当前音乐：</span>
+            <p ng-if="ltP.index.$scope.isAudio">{{ltP.index.focusWidget.picSrc}}</p>
+            <p ng-if="!ltP.index.$scope.isAudio">{{ltP.index.global.APP.bgSound.src}}</p>
+        </div>
+    </header>
+    <section id="fly-audio-list" class="fly-audio-list">
+        <ul class="audio-list" fly-audio-list>
+            <li ng-show="ltP.index.$scope.isAudio" ng-class="{true:'active',false:''}[item.src===ltP.index.focusWidget.picSrc]" ng-repeat="item in ltP.index.$scope.audioList track by $index" data-src="{{item.src}}">
+            <span ng-bind="item.name"></span>
+                </li>
+            <li ng-show="!ltP.index.$scope.isAudio" ng-class="{true:'active',false:''}[item.src===ltP.index.global.APP.bgSound.src]" ng-repeat="item in ltP.index.$scope.audioList track by $index" data-src="{{item.src}}">
+                <span ng-bind="item.name"></span>
+            </li>
+        </ul>
+    </section>
+    <section class="fly-audio-content">
+        <ul ng-if="ltP.index.$scope.isAudio">
+            <li>
+                <span>音乐地址&nbsp;&nbsp;&nbsp;</span><span><input disabled type="text" ng-model="ltP.index.focusWidget.picSrc"/></span>
+            </li>
+            <li>
+                <span>是否循环&nbsp;&nbsp;&nbsp;</span><span><fly-switch fly-model="ltP.index.focusWidget.loop" default-color="#ea2e49" active-color="#78bc8e" checkbox-id="fly-audio-loop"></fly-switch></span>
+            </li>
+            <li>
+                <span>自动播放&nbsp;&nbsp;&nbsp;</span><span><fly-switch fly-model="ltP.index.focusWidget.autoplay" default-color="#ea2e49" active-color="#78bc8e" checkbox-id="fly-audio-autoplay"></fly-switch></span>
+            </li>
+            <li>
+                <span>是否显示&nbsp;&nbsp;&nbsp;</span><span><fly-switch fly-model="ltP.index.focusWidget.styles.display" default-color="#ea2e49" active-color="#78bc8e" checkbox-id="fly-audio-display"></fly-switch></span>
+            </li>
+        </ul>
+        <ul ng-if="!ltP.index.$scope.isAudio">
+            <li>
+                <span>音乐地址&nbsp;&nbsp;&nbsp;</span><span><input type="text" ng-model="ltP.index.global.APP.bgSound.src"/></span>
+            </li>
+            <li>
+                <span>是否循环&nbsp;&nbsp;&nbsp;</span><span><fly-switch fly-model="ltP.index.global.APP.bgSound.loop" default-color="#ea2e49" active-color="#78bc8e" checkbox-id="fly-audio-loop"></fly-switch></span>
+            </li>
+            <li>
+                <span>自动播放&nbsp;&nbsp;&nbsp;</span><span><fly-switch fly-model="ltP.index.global.APP.bgSound.autoplay" default-color="#ea2e49" active-color="#78bc8e" checkbox-id="fly-audio-autoplay"></fly-switch></span>
+            </li>
+        </ul>
+
+    </section>
+    <section class="fly-bottom">
+        <input type="button" value="清除音乐" class="active" ng-click="clearMusic()" />
+        <input type="button" value="本地上传" ng-click="getAudioFromNative()"/>
+    </section>
+</section>

@@ -1,0 +1,39 @@
+<section id="fly-video-library-container">
+    <header class="fly-pic-btn">
+        <p>
+            <input type="text" placeholder="请输入资源名称"/>
+            <input type="button"/>
+        </p>
+        <p class="fly-video-btn">
+            <input type="button" value="机构视频库"/>
+            <input type="button" value="我的视频" class="active"/>
+        </p>
+    </header>
+    <section class="fly-pic-list" id="fly-pic-list">
+        <header class="fly-pic-type">
+            <div id="next"></div>
+            <div id="fly-pic-list-items" class="fly-pic-list-items">
+                <ul fly-video-type-title>
+                    <li ng-repeat="item in ltP.index.$scope.typeTitle track by $index" data-id="{{item.id}}" ng-bind="item.name"></li>
+                </ul>
+            </div>
+            <div id="prev"></div>
+        </header>
+        <section class="fly-type-items">
+            <ul fly-video-type-items>
+                <li ng-repeat="item in ltP.index.$scope.typeItemList track by $index" data-id="{{item.id}}">{{item.name}}<span></span></li>
+            </ul>
+        </section>
+        <section class="fly-list-items">
+            <ul fly-video-item>
+                <li ng-repeat="item in ltP.index.$scope.picList track by $index">
+                    <img  data-id="{{item.id}}" data-type="{{item.type}}" data-video="{{item.src}}" src="static/images/animate.png" alt=""/>
+                </li>
+            </ul>
+        </section>
+    </section>
+    <section class="fly-bottom">
+        <input class="btn-ok" type="button" value="确  认"/>
+        <input class="btn-clear" type="button" value="清  除"/>
+    </section>
+</section>

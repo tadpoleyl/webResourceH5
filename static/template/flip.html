@@ -1,0 +1,27 @@
+<!--翻页-->
+ <section id="fly-flip">
+     <section class="fly-flip-box">
+         <ul class="fly-flip-container" ng-init="pageChangeType=ltP.index.global.APP.pageChangeType">
+             <li ng-class="{true:'active',false:''}[ltP.index.global.APP.pageChangeType === 4]" class="fly-flip-container-item" data-value="4"><button ng-click='ltP.index.global.APP.pageChangeType =4'> 向上移动</button></li>
+             <li ng-class="{true:'active',false:''}[ltP.index.global.APP.pageChangeType === 8]" class="fly-flip-container-item" data-value="8"><button ng-click='ltP.index.global.APP.pageChangeType = 8'>从底部移动</button></li>
+             <li ng-class="{true:'active',false:''}[ltP.index.global.APP.pageChangeType === 12]" class="fly-flip-container-item" data-value="12"><button ng-click='ltP.index.global.APP.pageChangeType = 12'>从底部淡入</button></li>
+             <li ng-class="{true:'active',false:''}[ltP.index.global.APP.pageChangeType === 16]" class="fly-flip-container-item" data-value="16"><button ng-click='ltP.index.global.APP.pageChangeType = 16'>向上缓动</button></li>
+             <li ng-class="{true:'active',false:''}[ltP.index.global.APP.pageChangeType === 20]" class="fly-flip-container-item" data-value="20"><button ng-click='ltP.index.global.APP.pageChangeType = 20'>向下缩放</button></li>
+             <li ng-class="{true:'active',false:''}[ltP.index.global.APP.pageChangeType === 22]" class="fly-flip-container-item" data-value="22"><button ng-click='ltP.index.global.APP.pageChangeType = 22'>中心放大</button></li>
+             <li ng-class="{true:'active',false:''}[ltP.index.global.APP.pageChangeType === 26]" class="fly-flip-container-item" data-value="26"><button ng-click='ltP.index.global.APP.pageChangeType = 26'>向上移出，中心放大</button></li>
+             <li ng-class="{true:'active',false:''}[ltP.index.global.APP.pageChangeType === 30]" class="fly-flip-container-item" data-value="30"><button ng-click='ltP.index.global.APP.pageChangeType = 30'>顶部翻转后移</button></li>
+             <li ng-class="{true:'active',false:''}[ltP.index.global.APP.pageChangeType === 34]" class="fly-flip-container-item" data-value="34"><button ng-click='ltP.index.global.APP.pageChangeType = 34'>3D中心缩小翻转</button></li>
+             <li ng-class="{true:'active',false:''}[ltP.index.global.APP.pageChangeType === 36]" class="fly-flip-container-item" data-value="36"><button ng-click='ltP.index.global.APP.pageChangeType = 36'>左上角悬挂</button></li>
+             <li ng-class="{true:'active',false:''}[ltP.index.global.APP.pageChangeType === 40]" class="fly-flip-container-item" data-value="40"><button ng-click='ltP.index.global.APP.pageChangeType = 40'>向上往里翻页</button></li>
+             <li ng-class="{true:'active',false:''}[ltP.index.global.APP.pageChangeType === 44]" class="fly-flip-container-item" data-value="44"><button ng-click='ltP.index.global.APP.pageChangeType = 44'>180度底部翻页</button></li>
+             <li ng-class="{true:'active',false:''}[ltP.index.global.APP.pageChangeType === 48]" class="fly-flip-container-item" data-value="48"><button ng-click='ltP.index.global.APP.pageChangeType = 48'>3D立方体中心上下翻转</button></li>
+             <li ng-class="{true:'active',false:''}[ltP.index.global.APP.pageChangeType === 52]" class="fly-flip-container-item" data-value="52"><button ng-click='ltP.index.global.APP.pageChangeType = 52'>3D立方体上下翻转</button></li>
+             <li ng-class="{true:'active',false:''}[ltP.index.global.APP.pageChangeType === 56]" class="fly-flip-container-item" data-value="56"><button ng-click='ltP.index.global.APP.pageChangeType = 56'>3D立方体外向里缩放翻转</button></li>
+             <li ng-class="{true:'active',false:''}[ltP.index.global.APP.pageChangeType === 60]" class="fly-flip-container-item" data-value="60"><button ng-click='ltP.index.global.APP.pageChangeType = 60'>3D立方体缩放翻转</button></li>
+             <li ng-class="{true:'active',false:''}[ltP.index.global.APP.pageChangeType === 64]" class="fly-flip-container-item" data-value="64"><button ng-click='ltP.index.global.APP.pageChangeType = 64'>旋转木马</button></li>
+         </ul>
+     </section>
+     <div class="fly-btn">
+         <input type="button" name="name" value="使用默认翻页" ng-click="ltP.index.global.APP.pageChangeType = 16;goHome()" />
+     </div>
+</section>
